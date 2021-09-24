@@ -22,16 +22,15 @@
 </button>
 <div class="container">
 	<!-- Begin Logo -->
-	<a class="navbar-brand" href="index.html">
+	<a class="navbar-brand" href="index.php">
 	<img src="assets/logo/homeLogo.jpg" style="width: 80%" alt="SOCCER411">
 	</a>
-	<!-- End Logo -->
 	<!-- Begin Menu -->
 	<div class="collapse navbar-collapse" id="navbarsWow">
 		<!-- Begin Menu -->
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item">
-			<a class="nav-link" href="index.html">Home</a>
+			<a class="nav-link" href="index.php">Home</a>
 			</li>
 			<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Post</a>
@@ -44,17 +43,23 @@
 			<a class="nav-link" href="category.html">Category</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link" href="about.html">About</a>
+			<a class="nav-link" href="about.php">About</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link" href="contact.html">Contact</a>
+			<a class="nav-link" href="contact.php">Contact</a>
 			</li>
 			<li class="nav-item">
-			<a target="_blank" class="nav-link highlight" href="login.php">Login</a>
+			<a class="nav-link highlight" href="login.php">Login</a>
 			</li>
 		</ul>
 		<!-- End Menu -->
 	</div>
 </div>
 </header>
+<script src="assets/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="assets/js/masonry.pkgd.min.js"></script>
+<script src="assets/js/theme.js"></script>
 </body>

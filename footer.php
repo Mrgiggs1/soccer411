@@ -28,7 +28,7 @@
 						</div>
 						<div class="col-sm-3">
 							<div class="footer-widget">
-								<h5 class="title">Address</h5>
+								<h5 class="title">Contact</h5>
 								<ul>
 									<li><a href="tel:065-357-2171">Jali</a></li>
 									<li><a href="tel:079-444-9122">Rudolph</a></li>
@@ -50,12 +50,13 @@
 						<div class="col-sm-3">
 							<div class="footer-widget textwidget">
 								<div class="text-left footersocial">
-									<ul><h5>Connect with Us</h5>
-									<i class="fa fa-facebook"></i>
-									<i class="fa fa-twitter"></i>
-									<i class="fa fa-google"></i>
-									<i class="fa fa-pinterest"></i>
-									<i class="fa fa-github"></i></ul>
+									<ul>
+										<h5>Connect with Us</h5>
+										<a target="_blank" href="https://fb.me/kasiSoccer411"><i class="fa fa-facebook"></i></a>
+										<a target="_blank" href=""><i class="fa fa-twitter"></i></a>
+										<a target="_blank" href="https://instagram.com/kasidiski_soccer411"><i class="fa fa-instagram"></i></a>
+										<a target="_blank" href=""><i class="fa fa-pinterest"></i></a>
+									</ul>
 								</div>
 							</div>
 						</div>

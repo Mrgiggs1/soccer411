@@ -14,7 +14,7 @@
     ================================================== -->
 	<section class="intro">
 	<div class="wrapintro">
-		<h1>Affiliates Bootstrap Template</h1>
+		<h1>Soccer411</h1>
 		<h2 class="lead">"Affiliates" is a free Bootstrap Template designed & developed by WowThemesNet, best suitable for affiliate marketers.</h2>
 		<a target="_blank" href="https://gum.co/affiliates-html-template" class="btn">Download</a>
 	</div>
