@@ -1,10 +1,14 @@
+<?php
+	include "dbconnection.php";
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="icon" href="assets/logo/tabLogo.jpg">
-<title>Soccer411</title>
+<title>KasiDiski.co.za</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
@@ -49,7 +53,17 @@
 			<a class="nav-link" href="contact.php">Contact</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link highlight" href="login.php">Login</a>
+			<?php
+				if(strlen($_SESSION['email']) <= 0)
+				{
+					echo '<a class="nav-link highlight" href="login.php">login</a>';
+				}
+				else if(strlen($_SESSION['email']) > 0)
+				{
+					echo '<a class="nav-link highlight" href="logout.php">logout</a>';
+				}
+			?>
+			
 			</li>
 		</ul>
 		<!-- End Menu -->

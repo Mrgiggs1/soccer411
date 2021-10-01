@@ -1,5 +1,6 @@
 <?php
-	include "header.php"
+	include "header.php";
+	$time = date("H:M");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +13,23 @@
 <div class="site-content">
 	<!-- Home Jumbotron
     ================================================== -->
+	
 	<section class="intro">
 	<div class="wrapintro">
-		<h1>Soccer411</h1>
-		<h2 class="lead">"Affiliates" is a free Bootstrap Template designed & developed by WowThemesNet, best suitable for affiliate marketers.</h2>
-		<a target="_blank" href="https://gum.co/affiliates-html-template" class="btn">Download</a>
+		<h5>
+			<?php
+				if(substr($time,0,2) >= 12)
+				{
+					echo 'Afternoon';
+				}else if(substr($time,0,2) >= 00 && substr($time,0,2) < 12)
+				{
+					echo 'Morning';
+				}
+			?>
+		</h5>
+		<h1>Kasi Diski</h1>
+		<h2 class="lead">"Thinking of researving this for ads</h2>
+		<a target="_blank" href="ads.com" class="btn">Open Ad</a>
 	</div>
 	</section>
 	<!-- Container

@@ -1,5 +1,5 @@
 <?php
-	include "header.php"
+	include "header.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
 	<div class="about">
    <div class="container">
       <div class="row">
-			 <dir class="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+			 <dir class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
 				<div class="about_box">
 				   <figure><img src="assets/logo/tabLogo.jpg"/></figure>
 				</div>
@@ -24,22 +24,34 @@
 				<div class="about_box">
 				   <h2>Login</h2>
 				</div>
-				<div class="article-post">
-					<input type="radio" name="login" value = "superAdmin"> Super Admin
-					<input type="radio" name="login" value = "eventAdmin"> Event Admin
-					<input type="radio" name="login" value = "teamManager" > Team Manager
-					<form method="POST">
-						<div class="row">
-							<div class="col-md-8">
-								<input class="form-control" type="text" name="email_address" placeholder="Email">
-							</div><br>
-							<div class="col-md-8">
-								<input class="form-control" type="password" name="pass" placeholder="Password">
+				<?php
+				
+				if(strlen($_SESSION['email'])<=0)
+				{
+				
+					echo ' <div class="article-post">
+						
+						<form method="POST">
+							<input required type="radio" name="login" value = "superAdmin"> Super Admin
+							<input required type="radio" name="login" value = "eventAdmin"> Event Admin
+							<input required type="radio" name="login" value = "teamManager" > Team Manager
+							<div class="row">
+								<div class="col-md-8">
+									<input class="form-control" required type="text" name="email_address" placeholder="Email">
+								</div><br>
+								<div class="col-md-8">
+									<input class="form-control" required type="password" name="pass" placeholder="Password">
+								</div>
 							</div>
-						</div>
-						<input class="btn btn-success" type="submit" name="submit" value="Send">
-					</form>
-				</div>
+							<input class="btn btn-success" type="submit" name="submit" value="Sign In">
+						</form>
+					</div>';
+				}else{
+					echo '<div class="article-post">
+						<h2>Already LoggedIn</h2>
+					</div>';
+				}
+				?>
 			</dir>
 		</div>
 	</div>
@@ -53,12 +65,12 @@
 			if(filter_var($_POST['email_address'], FILTER_VALIDATE_EMAIL))
 			{		
 				$login = $_POST['login'];
-				$email = $_POST['email'];
+				$email = $_POST['email_address'];
 				$pw = $_POST['pass'];
 				if($login == "superAdmin")
 				{
-					$sel = "select * from admin where email='".$email."' AND password = '".$pw."' AND role = '".$login."'";
-					$query = mysqli_query($con,$sel);
+					$select = "select * from admin where email='".$email."' AND password = '".$pw."' AND role = '".$login."'";
+					$query = mysqli_query($con, $select);
 					$line = mysqli_fetch_assoc($query);
 					
 					if($line)
@@ -67,10 +79,10 @@
 						$email = $_SESSION['email'];
 						echo '<script type="text/javascript"> alert("Super Admin successfully logged in") </script>';
 						echo '<script>
-							window.location.href="admin/managers.php";
+							window.location.href="dashboard.php";
 						</script>
 						';								
-					}
+					}	
 					else{
 						echo '<script type="text/javascript"> alert("wrong super admin email and password") </script>';
 					}
@@ -126,8 +138,8 @@
 			}
 
 		}
-		include "footer.php"
-	?>
+		include "footer.php";
+?>
 	<!-- Begin Footer
     
     ================================================== -->
