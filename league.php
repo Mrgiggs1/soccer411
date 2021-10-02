@@ -4,15 +4,24 @@
 	
 	check_login();
 	
-		
+	
+	  echo $_SERVER['PATH_INFO'];
+    // outputs '/63.html'
+
+	
 ?>
+
+<Files news>
+    ForceType application/x-httpd-php
+</Files>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="icon" href="assets/images/favicon.ico">
-<title>Soccer411</title>
+<title>League</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
@@ -65,11 +74,15 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="col-sm-9">
-			<a href="addTeam"><button type="button" class="btn customeButAdd">Add Team</button></a>
+			
 				<div class="section-title">
-					<h2><span>Teams</span></h2>
+				
+					
+					<h2><span>League</span> </h2>
 				</div>
+				
 				<div class="masonrygrid row listrecent">
 					<!-- end post -->
 					<!-- begin post -->
@@ -79,17 +92,23 @@
 								<table  style="width:100%; text-align: center; "  class="table col-xl-12 col-lg-6 col-md-5 col-sm-5">
 											<thead>
 												<tr>
-													<th scope="col">##</th>
-													<th scope="col">Team Logo</th>
-													<th scope="col">Team Name</th>
-													<th scope="col">Team Owner</th>
-													<th  scope="col" >Team Email</th>
-													<th scope="col">Team Tel</th>
-													<th scope="col">League</th>
+													<th scope="col"></th>
+													<th scope="col">Club</th>
+													<th scope="col">MP</th>
+													<th scope="col">W</th>
+													<th scope="col">D</th>
+													<th scope="col">L</th>
+													<th scope="col">GF</th>
+													<th scope="col">GA</th>
+													<th scope="col">GD</th>
+													<th scope="col">PTS</th>
+													<th scope="col">LAST 5</th>
+													
+													
 												</tr>
 											</thead>
 								<?php			
-									$quer = "SELECT * FROM team order by teamName";
+									$quer = "SELECT * FROM team , league WHERE team.teamId = league.teamId order by teamName";
 									$result = mysqli_query($con,$quer);
 									$counter=1;
 									
@@ -98,20 +117,26 @@
 									?>
 									<tbody>
 										<tr>
-											<th scope="row"><?php echo $counter." "; ?></th>
-											<td>
-												<div class="text-center">
-													<a href="team_Profile.php?id=<?php echo $team['teamId']; ?>">
-														<img style="width:60px; height:60px" alt="No Logo" src="<?php echo $team['logo']; ?>">
-													</a>
-												</div>
-											</td>									
-											<td><?php echo $team['teamName'] ?></td>
-											<td><?php echo $team['teamOwner'] ?></td>
-											<td><?php echo $team['email'] ?></td>
-											<td><a href="tel:0<?php echo $team['landLine'] ?>">0<?php echo $team['landLine'] ?></a></td>
+										<th colspan="2" scope="row"> 
 											
-											<td><?php echo $team['league'] ?></td>
+												<div style="float:left; margin-left:10px;">
+												<?php echo $counter." "; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+													<a href="team_Profile.php?id=<?php echo $team['teamId']; ?>">
+														<img style="width:30px; height:30px; border-radius:50%" alt="No Logo" src="<?php echo $team['logo']; ?>">
+													</a>
+													&nbsp;&nbsp;&nbsp;&nbsp;
+													<?php echo " ".$team['teamName'] ?>
+												</div>
+											</th>
+											<td><?php echo " ".$team['played'] ?></td>
+											<td><?php echo " ".$team['win'] ?></td>
+											<td><?php echo " ".$team['draw'] ?></td>
+											<td><?php echo " ".$team['lose'] ?></td>
+											<td><?php echo " ".$team['goals_for'] ?></td>
+											<td><?php echo " ".$team['goals_against'] ?></td>
+											<td><?php echo " ".$team['goals_diff'] ?></td>
+											<td><?php echo " ".$team['points'] ?></td>
+											<td></td>
 										</tr>
 									
 									<?php

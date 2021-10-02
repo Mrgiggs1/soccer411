@@ -828,6 +828,35 @@ iframe {
     max-width:100%;
 }
 
+
+.customeButAdd{
+	    background: #6FD350;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 6px 10px 0 rgb(0 0 0 / 10%);
+    padding-left: 1em;
+    padding-right: 1em;
+	float:right;
+	margin-top:20px;
+}
+
+.submitB{
+	display:fex;
+	justify-content:center;
+	align-items:center;
+	text-align:center;
+}
+
+.submitButton{
+	   background: #6FD350;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 6px 10px 0 rgb(0 0 0 / 10%);
+    padding-left: 1em;
+    padding-right: 1em;
+	
+	margin-top:20px;
+}
 @media (max-width: 1199px) {
     .container {
         width: 96%;

@@ -60,10 +60,10 @@
 					</h6>
 						<h5><span>Manage</span></h5>
 						<ul style="list-none;">
-							<li><a href="teams.php">Teams</a></li>
-							<li><a href="">League</a></li>
+							<li><a href="teams">Teams</a></li>
+							<li><a href="league">League</a></li>
 							<li><a href="">Players</a></li>
-							<li><a href="setGame.php">Games</a></li>
+							<li><a href="setGame">Games</a></li>
 							
 						</ul>
 					</div>

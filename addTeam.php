@@ -34,7 +34,7 @@
 			<section class="recent-posts row">
 			<div class="col-sm-3">
 				<div class="sidebar">
-					<a href="dashboard.php">
+					<a href="dashboard">
 						<h2>DashBoard</h2>
 					</a>
 					<div class="sidebar-section">
@@ -66,9 +66,9 @@
 				</div>
 			</div>
 			<div class="col-sm-9">
-			<a href="addTeam"><button type="button" class="btn customeButAdd">Add Team</button></a>
+		
 				<div class="section-title">
-					<h2><span>Teams</span></h2>
+					<h2><span>Add Team</span></h2>
 				</div>
 				<div class="masonrygrid row listrecent">
 					<!-- end post -->
@@ -76,51 +76,122 @@
 					<div class="col-md-12 grid-item">
 						<div class="card">
 							<div class="card-block">
-								<table  style="width:100%; text-align: center; "  class="table col-xl-12 col-lg-6 col-md-5 col-sm-5">
-											<thead>
-												<tr>
-													<th scope="col">##</th>
-													<th scope="col">Team Logo</th>
-													<th scope="col">Team Name</th>
-													<th scope="col">Team Owner</th>
-													<th  scope="col" >Team Email</th>
-													<th scope="col">Team Tel</th>
-													<th scope="col">League</th>
-												</tr>
-											</thead>
-								<?php			
-									$quer = "SELECT * FROM team order by teamName";
-									$result = mysqli_query($con,$quer);
-									$counter=1;
-									
-									while($team = mysqli_fetch_assoc($result))
+							
+							<a href="teams">
+								<h2 align="center" >Enter Team Details</h2>
+							</a>
+								<form method="POST" enctype="multipart/form-data">
+								  <div class="form-group row">
+									<label for="teamName" class="col-sm-2 col-form-label">Team Name</label>
+									<div class="col-sm-10">
+									  <input type="text"  class="form-control" name="teamName" id="teamName" placeholder="Enter Team Name">
+									</div>
+								  </div>
+								  <div class="form-group row">
+									<label for="teamOwner" class="col-sm-2 col-form-label">Team Owner</label>
+									<div class="col-sm-10">
+									  <input type="text" class="form-control" id="teamOwner" name="teamOwner" placeholder="Enter Team Owner">
+									</div>
+								  </div>
+								  <div class="form-group row">
+									<label for="staticEmail" class="col-sm-2 col-form-label">Team Email</label>
+									<div class="col-sm-10">
+									  <input type="email"  class="form-control" id="staticEmail"  name="staticEmail" value="email@example.com">
+									</div>
+								  </div>
+								  <div class="form-group row">
+									<label for="teamNumber" class="col-sm-2 col-form-label">Team Tel</label>
+									<div class="col-sm-10">
+									  <input type="text" class="form-control" id="teamNumber" name="teamNumber" placeholder="Team Tel">
+									</div>
+								  </div>
+								  
+								  <!--<div class="form-group row">
+									<label for="league" class="col-sm-2 col-form-label">League</label>
+									<div class="col-sm-10">
+										  <select class="form-control" id="exampleFormControlSelect1">
+											  <option>1</option>
+											  <option>2</option>
+											  <option>3</option>
+											  <option>4</option>
+											  <option>5</option>
+											</select>
+									</div>
+									</div>-->
+									<div class="form-group row">
+									<label for="imglink" class="col-sm-2 col-form-label">Team Logo</label>
+									<div class="col-sm-10">
+									      <input type="file" class="form-control-file" name="imglink" id="exampleFormControlFile1">
+
+									</div>
+
+									</div>
+							
+							
+									<div class="submitB">
+									<button type="submit" name="teamSubmit" class="btn submitButton mb-2">Confirm identity</button>
+									</div>
+								</form>
+								
+								
+								
+								
+								<?php 
+							if(isset($_POST['teamSubmit']))
+							{
+								
+								$teamName =$_POST['teamName'];
+								$teamOwner = $_POST['teamOwner'];
+								$date = date("Y-m-d");
+								$staticEmail = $_POST['staticEmail'];
+								
+								$teamNumber =$_POST['teamNumber']; 
+								
+								$img_name = $_FILES['imglink']['name'];
+								$img_size =$_FILES['imglink']['size'];
+								$img_tmp =$_FILES['imglink']['tmp_name'];
+								$league ="KASI PREMIER LEAGUE";
+								$tournament1 = "Kasi_Knockout";
+								
+									$directory = 'logos/';
+							
+								
+								
+								$target_file = $directory.$img_name;
+								
+									if($img_size>2097152)
 									{
-									?>
-									<tbody>
-										<tr>
-											<th scope="row"><?php echo $counter." "; ?></th>
-											<td>
-												<div class="text-center">
-													<a href="team_Profile.php?id=<?php echo $team['teamId']; ?>">
-														<img style="width:60px; height:60px" alt="No Logo" src="<?php echo $team['logo']; ?>">
-													</a>
-												</div>
-											</td>									
-											<td><?php echo $team['teamName'] ?></td>
-											<td><?php echo $team['teamOwner'] ?></td>
-											<td><?php echo $team['email'] ?></td>
-											<td><a href="tel:0<?php echo $team['landLine'] ?>">0<?php echo $team['landLine'] ?></a></td>
-											
-											<td><?php echo $team['league'] ?></td>
-										</tr>
+										echo '<script type="text/javascript"> alert("Image file size larger than 2 MB.. Try another image file") </script>';
+									}
 									
-									<?php
-										$counter++;
+									else
+									{
+										move_uploaded_file($img_tmp,$target_file);
+											
+
+
+
+
+										$query= "insert into team values('$target_file','jshsabbhhdjk','$teamName ','$teamOwner','$staticEmail','$teamNumber','$league','$tournament1','$date')";
+										$query_run = mysqli_query($con,$query);
 										
+										if($query_run)
+										{
+											echo '<script type="text/javascript"> alert("NEW TEAM INSERTED") </script>';
+											echo '<script language="javascript">document.location="team";</script>';
 										}
-								?>
-									</tbody>	
-								</table>
+										else
+										{
+											echo '<script type="text/javascript"> alert("Error!") </script>';
+										}
+									}	
+									
+									
+								}
+								
+	  
+				?>	
+								
 								<div class="metafooter">
 									<!--<div class="wrapfooter">
 										<span class="meta-footer-thumb">
