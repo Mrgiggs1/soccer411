@@ -48,7 +48,7 @@
 						<h5><span>Manage</span></h5>
 						<ul style="list-none;">
 							<li><a href="teams.php">Teams</a></li>
-							<li><a href="">League</a></li>
+							<li><a href="league">League</a></li>
 							<li><a href="">Players</a></li>
 							<li><a href="setGame.php">Games</a></li>
 							
@@ -74,7 +74,7 @@
 						<div class="card">
 							<div class="card-block">
 								<form method="POST">
-								<table border="1px" style="width:100%; text-align: center;" align="center-desk" class="col-xl-12 col-lg-6 col-md-5 col-sm-5">
+								<table  style="width:100%; text-align: center; "  class="table col-xl-12 col-lg-6 col-md-5 col-sm-5">
 									<tr>
 										<th><div id="txt"> </div> </th>
 									</tr>
@@ -172,17 +172,19 @@
 												}
 												else{
 													//gameID home scoreH away scoreW gameDate gameTime
-
-													$gameID = substr($homeTeam,0,4).'_'.substr($awayTeam,0,4);
+													$ran = rand(0,500);
+													$gameID = substr($homeTeam,0,4).'_'.substr($awayTeam,0,4).''.$ran;
+													
+													//i made gameID in game table primary key so i prompt the user to try again if it failed to insert as gameID would be the same
 													
 													$insert_game= "INSERT INTO game values('$gameID','$homeTeam','0', '$awayTeam','0','$matchDate','$matchTime')";
 													$resul = mysqli_query($con,$insert_game);
 													if($resul)
 													{
-														echo '<script type="text/javascript"> alert("Game date is set") </script>';
+														//echo '<script type="text/javascript"> alert("Game date is set") </script>';
 													}
 													else{
-														echo '<script type="text/javascript"> alert("Failed to set Match date") </script>';
+														echo '<script type="text/javascript"> alert("Failed: Try again") </script>';
 													}
 												}
 												
@@ -202,7 +204,7 @@
 								?>
 							
 							<!----Upcoming games-->
-								<table class="col-xl-8 col-lg-6 col-md-5 col-sm-5" style="width: 100%">
+								<table  style="width:100%; text-align: left; "  class="table col-xl-12 col-lg-6 col-md-5 col-sm-5">
 								<?php
 									$sel = "select * from game where gameDate >= '".$today."' order by gameDate";
 									$res = mysqli_query($con,$sel);
@@ -212,14 +214,16 @@
 									
 									while($pick = mysqli_fetch_assoc($res))
 									{
+											
 								?>
 									
 										
 											<tr>
 												<td>Fixture <?php echo $counter ?></td>
-												<td><?php echo $pick['home'] ?></td>
+												<td><Strong><?php echo $pick['home'] ?></strong></td>
 												<td><?php echo $pick['away'] ?></td>
-												<td><?php echo $pick['gameDate'] ?></td>
+											
+												<td><?php $newDate = New DateTime($pick['gameDate']); echo $pick['gameDate'].' ('.$newDate->format('l').')'; ?></td>
 												<td><?php echo $pick['gameTime'] ?></td>
 												<!--<td>
 													<a href="updateFixture.php?id=<?php  echo $pick['gameID']; ?>">

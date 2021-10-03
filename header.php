@@ -13,9 +13,13 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
 <link href="assets/css/theme.css" rel="stylesheet">
-<!-- Begin tracking codes here, including ShareThis/Analytics -->
-    
-<!-- End tracking codes here, including ShareThis/Analytics -->
+
+<!----delete-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
+<!-- -->
 </head>
 <body class="layout-default">
 <!-- Begin Menu Navigation

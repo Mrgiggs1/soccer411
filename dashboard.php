@@ -90,13 +90,13 @@
 							</a>
 							<div class="card-block">
 								<h2 class="card-title"><a href="single.html">Subject</a></h2>
-								<h4 class="card-text">Education must also train one for quick, resolute and effective thinking. To think incisively and to think for one’s self is very difficult. </h4>
+								<h4 class="card-text">Soccer411. </h4>
 								<div class="metafooter">
 									<div class="wrapfooter">
 										<span class="meta-footer-thumb">
 										</span>
 										<span class="author-meta">
-										<span class="post-date">12 Jan 2018</span>
+										<span class="post-date"><?php echo date("Y-M-d(D)"); ?></span>
 										</span>
 										<span class="post-read-more"><a href="single.html" title="Read Story"><i class="fa fa-link"></i></a></span>
 										<div class="clearfix">

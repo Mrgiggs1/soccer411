@@ -21,13 +21,15 @@
 	<div class="wrapintro">
 		<h5>
 			<?php
+				echo date("l");
 				if(substr($time,0,2) >= 12)
 				{
-					echo 'Afternoon';
+					echo ' Afternoon';
 				}else if(substr($time,0,2) >= 00 && substr($time,0,2) < 12)
 				{
-					echo 'Morning';
-				}
+					echo ' Morning';
+				}			
+				
 			?>
 		</h5>
 		<h1>Kasi Diski</h1>

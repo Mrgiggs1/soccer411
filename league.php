@@ -108,7 +108,7 @@
 												</tr>
 											</thead>
 								<?php			
-									$quer = "SELECT * FROM team , league WHERE team.teamId = league.teamId order by teamName";
+									$quer = "SELECT * FROM team , league WHERE team.teamId = league.teamId order by points DESC, teamName";
 									$result = mysqli_query($con,$quer);
 									$counter=1;
 									
@@ -136,7 +136,13 @@
 											<td><?php echo " ".$team['goals_against'] ?></td>
 											<td><?php echo " ".$team['goals_diff'] ?></td>
 											<td><?php echo " ".$team['points'] ?></td>
-											<td></td>
+											<td>
+												<span style="text-danger;">W</span>
+												<span>D</span>
+												<span>L</span>
+												<span>D</span>
+												<span>W</span>
+											</td>
 										</tr>
 									
 									<?php

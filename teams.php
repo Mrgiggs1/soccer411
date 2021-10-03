@@ -66,11 +66,13 @@
 				</div>
 			</div>
 			<div class="col-sm-9">
-			<a href="addTeam"><button type="button" class="btn customeButAdd">Add Team</button></a>
+			
 				<div class="section-title">
 					<h2><span>Teams</span></h2>
 				</div>
+				<a href="addTeam"><button type="button" class="btn customeButAdd">Add Team</button></a>
 				<div class="masonrygrid row listrecent">
+				
 					<!-- end post -->
 					<!-- begin post -->
 					<div class="col-md-12 grid-item">
@@ -79,12 +81,11 @@
 								<table  style="width:100%; text-align: center; "  class="table col-xl-12 col-lg-6 col-md-5 col-sm-5">
 											<thead>
 												<tr>
-													<th scope="col">##</th>
-													<th scope="col">Team Logo</th>
-													<th scope="col">Team Name</th>
-													<th scope="col">Team Owner</th>
-													<th  scope="col" >Team Email</th>
-													<th scope="col">Team Tel</th>
+													<th scope="col"></th>
+													<th scope="col">Club</th>
+													<th scope="col">Owner</th>
+													<th  scope="col" >Email</th>
+													<th scope="col">Tel</th>
 													<th scope="col">League</th>
 												</tr>
 											</thead>
@@ -98,15 +99,17 @@
 									?>
 									<tbody>
 										<tr>
-											<th scope="row"><?php echo $counter." "; ?></th>
-											<td>
-												<div class="text-center">
+											<th colspan="2" scope="row"> 
+											
+												<div style="float:left; margin-left:10px;">
+												<?php echo $counter." "; ?>&nbsp;&nbsp;&nbsp;&nbsp;
 													<a href="team_Profile.php?id=<?php echo $team['teamId']; ?>">
-														<img style="width:60px; height:60px" alt="No Logo" src="<?php echo $team['logo']; ?>">
+														<img style="width:30px; height:30px; border-radius:50%" alt="No Logo" src="<?php echo $team['logo']; ?>">
 													</a>
+													&nbsp;&nbsp;&nbsp;&nbsp;
+													<?php echo " ".$team['teamName'] ?>
 												</div>
-											</td>									
-											<td><?php echo $team['teamName'] ?></td>
+											</th>									
 											<td><?php echo $team['teamOwner'] ?></td>
 											<td><?php echo $team['email'] ?></td>
 											<td><a href="tel:0<?php echo $team['landLine'] ?>">0<?php echo $team['landLine'] ?></a></td>
